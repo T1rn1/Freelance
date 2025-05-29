@@ -1,6 +1,7 @@
-import RegImage from "../../assets/RegPageImage.png";
-import styled from "styled-components";
-import { theme } from "../../styles/theme";
+import styled from 'styled-components';
+
+import RegImage from '../../assets/RegPageImage.png';
+import { theme } from '../../styles/theme';
 
 export const RegPageContainer = styled.div`
   display: grid;
