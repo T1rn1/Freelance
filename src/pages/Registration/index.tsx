@@ -1,10 +1,11 @@
 import Input from 'components/Input';
 import RadioButton from 'components/RadioBtn';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 
 import { auth } from '../../firebase/firebase';
 import {
+  ErrorText,
   InputForm,
   LinkToLogin,
   LoginTextWrapper,
@@ -25,15 +26,38 @@ const RegistrationPage: React.FC = () => {
   const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [registrationError, setRegistrationError] = useState<string | null>(null);
+
+  const isFormValid = useMemo(() => {
+    return (
+      firstName.trim().length > 0 &&
+      lastName.trim().length > 0 &&
+      email.trim().length > 0 &&
+      phone.trim().length > 0 &&
+      password.trim().length >= 8 &&
+      confirmPassword === password &&
+      role !== null
+    );
+  }, [firstName, lastName, email, phone, password, confirmPassword, role]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setRegistrationError(null);
     Registr();
   };
 
   const Registr = async () => {
-    const newUser = await createUserWithEmailAndPassword(auth, email, password);
-    console.log(newUser.user);
+    try {
+      const newUser = await createUserWithEmailAndPassword(auth, email, password);
+      console.log(newUser.user);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
+      if (error.code === 'auth/email-already-in-use') {
+        setRegistrationError('Этот email уже используется');
+      } else {
+        setRegistrationError('Ошибка регистрации. Попробуйте позже.');
+      }
+    }
   };
 
   return (
@@ -42,42 +66,37 @@ const RegistrationPage: React.FC = () => {
         <SubTitle>Давайте создадим Вам аккаунт</SubTitle>
         <Title>Заполните все поля</Title>
         <InputForm onSubmit={handleSubmit}>
-          <Input
-            label='Ваше имя'
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFirstName(e.target.value)}
-            placeholder='Имя'
-            value={firstName}
-          />
+          <Input label='Ваше имя' onChange={(e) => setFirstName(e.target.value)} placeholder='Имя' value={firstName} />
           <Input
             label='Ваша фамилия'
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setLastName(e.target.value)}
+            onChange={(e) => setLastName(e.target.value)}
             placeholder='Фамилия'
             value={lastName}
           />
           <Input
             label='E-mail'
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder='E-mail'
             type='email'
             value={email}
           />
           <Input
             label='Телефон номер'
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPhone(e.target.value)}
+            onChange={(e) => setPhone(e.target.value)}
             placeholder='Телефон'
             type='tel'
             value={phone}
           />
           <Input
             label='Пароль'
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
             placeholder='Пароль'
             type='password'
             value={password}
           />
           <Input
             label='Повторите пароль'
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setConfirmPassword(e.target.value)}
+            onChange={(e) => setConfirmPassword(e.target.value)}
             placeholder='Пароль'
             type='password'
             value={confirmPassword}
@@ -96,7 +115,10 @@ const RegistrationPage: React.FC = () => {
               onChange={() => setRole('contractor')}
             />
           </RadioGroup>
-          <RegBtn type='submit'>Зарегестрироваться</RegBtn>
+          {registrationError && <ErrorText>{registrationError}</ErrorText>}
+          <RegBtn disabled={!isFormValid} type='submit'>
+            Зарегистрироваться
+          </RegBtn>
         </InputForm>
         <LoginTextWrapper>
           <span>У вас есть аккаунт?</span>

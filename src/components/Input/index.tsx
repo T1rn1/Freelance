@@ -12,18 +12,27 @@ interface InputProps {
 }
 
 const validationSchemas: Record<string, yup.StringSchema> = {
-  text: yup.string().min(3, 'Минимум 3 символа'),
-  email: yup.string().email('Некорректный email'),
-  password: yup.string().min(8, 'Минимум 8 символов'),
-  tel: yup.string().matches(/^\+?\d{10,15}$/, 'Некорректный номер телефона'),
+  text: yup.string().min(3, 'Минимум 3 символа').required('Поле обязательно'),
+  email: yup
+    .string()
+    .required('Email обязателен')
+    .email('Введите корректный email')
+    .matches(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, 'Введите email в формате example@gmail.com'),
+  password: yup.string().min(8, 'Минимум 8 символов').required('Поле обязательно'),
+  tel: yup
+    .string()
+    .matches(/^\+?\d{10,15}$/, 'Некорректный номер телефона')
+    .required('Поле обязательно'),
 };
 
 const Input: React.FC<InputProps> = ({ label, placeholder, type = 'text', value, onChange }) => {
   const [isValid, setIsValid] = useState<boolean | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string>('');
 
   useEffect(() => {
     if (value.trim() === '') {
       setIsValid(null);
+      setErrorMessage('');
       return;
     }
 
@@ -31,14 +40,26 @@ const Input: React.FC<InputProps> = ({ label, placeholder, type = 'text', value,
 
     schema
       .validate(value)
-      .then(() => setIsValid(true))
-      .catch(() => setIsValid(false));
+      .then(() => {
+        setIsValid(true);
+        setErrorMessage('');
+      })
+      .catch((err: yup.ValidationError) => {
+        setIsValid(false);
+        setErrorMessage(err.message);
+      });
   }, [value, type]);
 
   return (
     <InputContainer>
-      {label && <Label>{label}</Label>}
-      <StyledInput $isValid={isValid} onChange={onChange} placeholder={placeholder} type={type} value={value} />
+      <Label>{label}</Label>
+      <StyledInput
+        onChange={onChange}
+        placeholder={placeholder}
+        title={isValid === false ? errorMessage : ''}
+        type={type}
+        value={value}
+      />
       <Underline $isValid={isValid} />
     </InputContainer>
   );

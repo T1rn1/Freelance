@@ -1,7 +1,6 @@
+import RegImage from 'assets/RegPageImage.png';
 import styled from 'styled-components';
-
-import RegImage from '../../assets/RegPageImage.png';
-import { theme } from '../../styles/theme';
+import { theme } from 'styles/theme';
 
 export const RegPageContainer = styled.div`
   display: grid;
@@ -80,6 +79,16 @@ export const RegBtn = styled.button`
   &:hover {
     transform: scale(1.05);
   }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+`;
+
+export const ErrorText = styled.p`
+  margin: 0;
+  color: ${theme.colors.red};
 `;
 
 export const LoginTextWrapper = styled.div`
