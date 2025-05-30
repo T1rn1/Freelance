@@ -1,4 +1,5 @@
 import RegImage from 'assets/RegPageImage.png';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { theme } from 'styles/theme';
 
@@ -102,7 +103,7 @@ export const LoginTextWrapper = styled.div`
   color: ${theme.colors.textColorgray};
 `;
 
-export const LinkToLogin = styled.span`
+export const LinkToLogin = styled(Link)`
   color: ${theme.colors.textColorOrange};
   cursor: pointer;
 

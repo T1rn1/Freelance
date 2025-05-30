@@ -1,4 +1,5 @@
 import LoginImage from 'assets/RegPageImage.png';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { theme } from 'styles/theme';
 
@@ -81,7 +82,7 @@ export const LoginBtn = styled.button`
   }
 `;
 
-export const ErrorText = styled.p`
+export const ErrorText = styled.link`
   margin: 0;
   color: ${theme.colors.red};
 `;
@@ -97,7 +98,7 @@ export const LoginTextWrapper = styled.div`
   color: ${theme.colors.textColorgray};
 `;
 
-export const LinkToRegistration = styled.a`
+export const LinkToRegistration = styled(Link)`
   color: ${theme.colors.textColorOrange};
   cursor: pointer;
 

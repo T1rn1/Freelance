@@ -132,8 +132,8 @@ const RegistrationPage: React.FC = () => {
           </RegBtn>
         </InputForm>
         <LoginTextWrapper>
-          <span>У вас есть аккаунт?</span>
-          <LinkToLogin>Войдите</LinkToLogin>
+          <span>Есть аккаунт?</span>
+          <LinkToLogin to='/login'>Войти</LinkToLogin>
         </LoginTextWrapper>
       </RegPageWrapper>
       <RegPageImage />

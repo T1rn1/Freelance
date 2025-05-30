@@ -1,10 +1,10 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
-import RegistrationPage from './pages/Registration';
+import App from './App';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RegistrationPage />
+    <App />
   </StrictMode>,
 );

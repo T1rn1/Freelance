@@ -68,7 +68,7 @@ const LoginPage: React.FC = () => {
         </InputForm>
         <LoginTextWrapper>
           <span>Нет аккаунта?</span>
-          <LinkToRegistration>Зарегистрируйтесь</LinkToRegistration>
+          <LinkToRegistration to='/register'>Зарегистрируйтесь</LinkToRegistration>
         </LoginTextWrapper>
       </LoginPageWrapper>
       <LoginPageImage />
