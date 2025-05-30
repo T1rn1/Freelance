@@ -1,8 +1,10 @@
 import Input from 'components/Input';
 import RadioButton from 'components/RadioBtn';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { doc, setDoc } from 'firebase/firestore';
 import { useMemo, useState } from 'react';
 
+import { db } from '../../firebase/firebase';
 import { auth } from '../../firebase/firebase';
 import {
   ErrorText,
@@ -49,8 +51,16 @@ const RegistrationPage: React.FC = () => {
   const Registr = async () => {
     try {
       const newUser = await createUserWithEmailAndPassword(auth, email, password);
-      console.log(newUser.user);
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const user = newUser.user;
+
+      await setDoc(doc(db, 'users', user.uid), {
+        firstName,
+        lastName,
+        email,
+        phone,
+        role,
+        createdAt: new Date(),
+      });
     } catch (error: any) {
       if (error.code === 'auth/email-already-in-use') {
         setRegistrationError('Этот email уже используется');
