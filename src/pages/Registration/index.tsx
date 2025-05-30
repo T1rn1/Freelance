@@ -61,6 +61,7 @@ const RegistrationPage: React.FC = () => {
         role,
         createdAt: new Date(),
       });
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       if (error.code === 'auth/email-already-in-use') {
         setRegistrationError('Этот email уже используется');
