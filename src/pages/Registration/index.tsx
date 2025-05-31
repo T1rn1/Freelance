@@ -3,6 +3,7 @@ import RadioButton from 'components/RadioBtn';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import { useMemo, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { db } from '../../firebase/firebase';
 import { auth } from '../../firebase/firebase';
@@ -42,6 +43,8 @@ const RegistrationPage: React.FC = () => {
     );
   }, [firstName, lastName, email, phone, password, confirmPassword, role]);
 
+  const navigate = useNavigate();
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setRegistrationError(null);
@@ -61,6 +64,8 @@ const RegistrationPage: React.FC = () => {
         role,
         createdAt: new Date(),
       });
+
+      navigate('/profile');
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       if (error.code === 'auth/email-already-in-use') {
