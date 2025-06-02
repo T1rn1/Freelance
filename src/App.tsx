@@ -11,7 +11,7 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route element={<Navigate replace to='/login' />} path='/' />
+        <Route element={<Navigate replace to='/profile' />} path='/' />
         <Route element={<LoginPage />} path='/login' />
         <Route element={<RegistrationPage />} path='/register' />
         <Route element={<ProfilePage />} path='/profile' />

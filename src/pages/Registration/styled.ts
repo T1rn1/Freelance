@@ -38,7 +38,7 @@ export const Title = styled.h1`
   font-size: 30px;
   font-weight: 700;
   line-height: 37px;
-  color: ${theme.colors.textColor};
+  color: ${theme.colors.textColorDarkBlue};
 `;
 
 export const SubTitle = styled.h2`
@@ -47,7 +47,7 @@ export const SubTitle = styled.h2`
   font-size: 16px;
   font-weight: 400;
   line-height: 20px;
-  color: ${theme.colors.textColor};
+  color: ${theme.colors.textColorDarkBlue};
 `;
 
 export const InputForm = styled.form`
