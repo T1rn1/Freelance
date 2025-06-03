@@ -6,7 +6,7 @@ export const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 50px;
+  padding: 50px 0;
 `;
 
 export const StyledNav = styled.nav`
@@ -17,11 +17,13 @@ export const StyledNav = styled.nav`
 `;
 
 export const StyledLink = styled(Link)`
+  display: flex;
+  align-items: center;
   font-family: Montserrat, sans-serif;
   font-size: 16px;
   font-weight: bold;
   line-height: 20px;
-  color: ${theme.colors.lightGreen};
+  color: ${theme.colors.textColorDarkBlue};
   font-style: normal;
   cursor: pointer;
   text-decoration: none;

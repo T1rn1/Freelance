@@ -1,9 +1,12 @@
+import WorkTapIcon from 'assets/WorktapIcon.svg';
+
 import { LoginBtn, ProfileBtns, RegBtn, StyledHeader, StyledLink, StyledNav } from './styled';
 
 const Header = () => {
   return (
     <StyledHeader>
       <StyledNav>
+        <img alt='WorkTap Logo' src={WorkTapIcon} />
         <StyledLink to={'/services'}>Услуги</StyledLink>
         <StyledLink to={'/orders'}>Заказы</StyledLink>
         <StyledLink to={'/createService'}>Создать услугу</StyledLink>
