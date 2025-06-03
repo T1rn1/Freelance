@@ -1,4 +1,3 @@
-import avatarImage from 'assets/Google.svg';
 import styled from 'styled-components';
 import { theme } from 'styles/theme';
 
@@ -11,14 +10,19 @@ export const Wrapper = styled.div`
   height: fit-content;
 `;
 
-export const AvatarCircle = styled.div`
+interface AvatarCircleProps {
+  image: string;
+}
+
+export const AvatarCircle = styled.div<AvatarCircleProps>`
   position: relative;
   width: 420px;
   height: 420px;
-  background: url(${avatarImage});
+  background: url(${(props) => props.image});
   border-radius: 50%;
   box-shadow: 0 8px 16px rgb(0 0 0 / 15%);
   background-size: cover;
+  background-position: center;
 `;
 
 export const Status = styled.div`
