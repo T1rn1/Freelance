@@ -1,5 +1,6 @@
 import AvatarIcon from 'components/AvatarIcon';
 import Header from 'components/Header';
+import InformationBox from 'components/InformationBox';
 import type { User } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { getUserData, type UserData } from 'services/userService';
@@ -40,6 +41,7 @@ const ProfilePage: React.FC = () => {
               <Skill key={index}>{skill}</Skill>
             ))}
           </SkillBox>
+          <InformationBox />
         </div>
         <AvatarIcon />
       </Halfs>
