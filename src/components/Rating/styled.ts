@@ -5,10 +5,10 @@ export const StyledRating = styled.div`
   position: absolute;
   bottom: -10px;
   display: flex;
-  gap: 15px;
+  gap: 10px;
   align-items: center;
   height: 50px;
-  padding: 12px 30px;
+  padding: 10px 30px;
   background: white;
   border-radius: 20px;
   box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
