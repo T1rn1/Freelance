@@ -27,17 +27,19 @@ export const AvatarCircle = styled.div<AvatarCircleProps>`
 
 export const Status = styled.div`
   position: absolute;
-  left: -60px;
+  top: 160px;
+  left: -100px;
   z-index: 1;
   display: flex;
   gap: 10px 20px;
   align-items: center;
-  padding: 10px;
+  padding: 12px 30px;
   font-size: 20px;
   font-weight: bold;
   color: ${theme.colors.green};
-  background: ${theme.colors.textColorWhite};
-  border-radius: 12px;
+  background: ${theme.colors.lightViolet};
+  border-radius: 50px;
+  box-shadow: 0 8px 16px rgb(0 0 0 / 4%);
 
   &::before {
     content: '';
