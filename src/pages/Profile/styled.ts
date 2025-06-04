@@ -2,13 +2,13 @@ import styled from 'styled-components';
 import { theme } from 'styles/theme';
 
 export const Wrapper = styled.div`
-  padding: 0 100px;
+  padding: 0 200px;
 `;
 
 export const Halfs = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 30px;
+  gap: 200px;
 `;
 
 export const Profession = styled.p`
@@ -46,34 +46,4 @@ export const Description = styled.p`
   line-height: 17px;
   color: ${theme.colors.textColorDarkBlue};
   font-style: normal;
-`;
-
-export const SkillBox = styled.div`
-  display: flex;
-  gap: 15px;
-`;
-
-export const Skill = styled.button`
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  align-items: center;
-  width: fit-content;
-  height: 40px;
-  padding: 10px 20px;
-  font-family: Montserrat, sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 17px;
-  color: ${theme.colors.textColorDarkBlue};
-  border: 1px solid ${theme.colors.lightViolet};
-  border-radius: 50px;
-  font-style: normal;
-  background-color: ${theme.colors.textColorWhite};
-  cursor: pointer;
-  transition: transform 0.2s ease;
-
-  &:hover {
-    transform: scale(1.05);
-  }
 `;

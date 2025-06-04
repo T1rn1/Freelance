@@ -1,18 +1,18 @@
 import AvatarIcon from 'components/AvatarIcon';
 import Header from 'components/Header';
 import InformationBox from 'components/InformationBox';
+import SkillBox from 'components/SkillBox';
+import WorksBox from 'components/WorksBox';
 import type { User } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { getUserData, type UserData } from 'services/userService';
 
 import { auth } from '../../firebase/firebase';
-import { Description, FullName, Halfs, Name, Profession, Skill, SkillBox, Wrapper } from './styled';
+import { Description, FullName, Halfs, Name, Profession, Wrapper } from './styled';
 
 const ProfilePage: React.FC = () => {
   const [userData, setUserData] = useState<UserData | null>(null);
   const [currentUser, setCurrentUser] = useState<User | null>(null);
-
-  const arr = ['Figma', 'It', 'programming'];
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (user) => {
@@ -36,15 +36,12 @@ const ProfilePage: React.FC = () => {
             <Name>Имя</Name>Фамилия
           </FullName>
           <Description>Описание профиля</Description>
-          <SkillBox>
-            {arr.map((skill, index) => (
-              <Skill key={index}>{skill}</Skill>
-            ))}
-          </SkillBox>
+          <SkillBox />
           <InformationBox />
         </div>
         <AvatarIcon />
       </Halfs>
+      <WorksBox />
     </Wrapper>
   );
 };
