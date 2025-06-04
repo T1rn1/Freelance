@@ -1,5 +1,4 @@
 import AvatarIcon from 'components/AvatarIcon';
-import Header from 'components/Header';
 import InformationBox from 'components/InformationBox';
 import SkillBox from 'components/SkillBox';
 import WorksBox from 'components/WorksBox';
@@ -28,7 +27,6 @@ const ProfilePage: React.FC = () => {
 
   return (
     <Wrapper>
-      <Header />
       <Halfs>
         <div>
           <Profession>Профессия</Profession>

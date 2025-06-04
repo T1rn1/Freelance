@@ -1,3 +1,4 @@
+import Layout from 'components/Layout';
 import CreateOrderPage from 'pages/CreateOrder';
 import CreateServicePage from 'pages/CreateService';
 import LoginPage from 'pages/Login';
@@ -12,13 +13,17 @@ const App = () => {
     <Router>
       <Routes>
         <Route element={<Navigate replace to='/profile' />} path='/' />
+
         <Route element={<LoginPage />} path='/login' />
         <Route element={<RegistrationPage />} path='/register' />
-        <Route element={<ProfilePage />} path='/profile' />
-        <Route element={<OrdersPage />} path='/orders' />
-        <Route element={<CreateOrderPage />} path='/createOrder' />
-        <Route element={<ServicePage />} path='/service' />
-        <Route element={<CreateServicePage />} path='/createService' />
+
+        <Route element={<Layout />}>
+          <Route element={<ProfilePage />} path='/profile' />
+          <Route element={<OrdersPage />} path='/orders' />
+          <Route element={<CreateOrderPage />} path='/createOrder' />
+          <Route element={<ServicePage />} path='/service' />
+          <Route element={<CreateServicePage />} path='/createService' />
+        </Route>
       </Routes>
     </Router>
   );
