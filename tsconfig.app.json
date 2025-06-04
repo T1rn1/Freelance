@@ -30,7 +30,8 @@
       "models/*": ["./src/models/*"],
       "pages/*": ["./src/pages/*"],
       "styles/*": ["./src/styles/*"],
-      "services/*": ["./src/services/*"]
+      "services/*": ["./src/services/*"],
+      "db/*": ["./src/db/*"]
     }
   },
   "include": ["src"]
