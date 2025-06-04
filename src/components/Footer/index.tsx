@@ -44,7 +44,7 @@ const Footer = () => {
       </FooterColumn>
 
       <FooterColumn>
-        <ColumnHeading>Follow</ColumnHeading>
+        <ColumnHeading>Поделиться</ColumnHeading>
         <SocialIconsContainer>
           <a href='https://facebook.com' rel='noopener noreferrer' target='_blank'>
             <StyledIconWrapper>

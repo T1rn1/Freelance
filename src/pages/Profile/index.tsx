@@ -4,7 +4,7 @@ import SkillBox from 'components/SkillBox';
 import WorksBox from 'components/WorksBox';
 import type { User } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
-import { getUserData, type UserData } from 'services/userService';
+import { getUserData, type UserData } from 'src/firebase/userService';
 
 import { auth } from '../../firebase/firebase';
 import { Description, FullName, Halfs, Name, Profession, Wrapper } from './styled';
@@ -29,17 +29,17 @@ const ProfilePage: React.FC = () => {
     <Wrapper>
       <Halfs>
         <div>
-          <Profession>Профессия</Profession>
+          <Profession>{userData?.education || 'Специализация не указана'}</Profession>
           <FullName>
-            <Name>Имя</Name>Фамилия
+            <Name>{userData?.firstName || 'Имя'}</Name> {userData?.lastName || 'Фамилия'}
           </FullName>
-          <Description>Описание профиля</Description>
-          <SkillBox />
-          <InformationBox />
+          <Description>Добро пожаловать в профиль! Здесь отображаются ваши данные.</Description>
+          <SkillBox skills={userData?.certificates || []} />
+          <InformationBox info={info} />
         </div>
-        <AvatarIcon />
+        <AvatarIcon photoURL={currentUser?.photoURL || ''} />
       </Halfs>
-      <WorksBox />
+      <WorksBox works={[]} />
     </Wrapper>
   );
 };

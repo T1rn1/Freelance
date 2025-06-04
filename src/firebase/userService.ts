@@ -1,14 +1,19 @@
 import { doc, getDoc } from 'firebase/firestore';
 
-import { db } from '../firebase/firebase';
+import { db } from './firebase';
 
 export interface UserData {
   firstName: string;
   lastName: string;
   email: string;
-  role: string;
-  phone?: string;
-  createdAt?: Date;
+  phone: string;
+  password: string;
+  createdAt: Date;
+  location?: string;
+  education?: string;
+  languageProficiency?: string;
+  skills?: string[];
+  certificates?: string[];
 }
 
 export const getUserData = async (uid: string): Promise<UserData | null> => {
