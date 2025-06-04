@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <StyledHeader>
       <StyledNav>
-        <img alt='WorkTap Logo' src={WorkTapIcon} />
+        <WorkTapIcon />
         <StyledLink to={'/services'}>Услуги</StyledLink>
         <StyledLink to={'/orders'}>Заказы</StyledLink>
         <StyledLink to={'/createService'}>Создать услугу</StyledLink>

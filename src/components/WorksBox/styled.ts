@@ -58,6 +58,7 @@ export const Price = styled.div`
 export const ElseBtn = styled.button`
   display: flex;
   gap: 10px;
+  margin-bottom: 40px;
   padding: 16px 48px;
   font-family: Montserrat, sans-serif;
   font-size: 18px;
@@ -67,10 +68,10 @@ export const ElseBtn = styled.button`
   background: transparent;
   border: 1px solid ${theme.colors.green};
   border-radius: 40px;
+  transition: transform 0.4s ease;
   box-sizing: border-box;
   font-style: normal;
   cursor: pointer;
-  transition: transform 0.4s ease;
 
   &:hover {
     transform: scale(1.05);

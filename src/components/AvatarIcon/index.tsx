@@ -1,4 +1,4 @@
-import avatarImage from 'assets/svgs/Google.svg';
+import avatarImage from 'assets/pngs/RegPageImage.png';
 import SettingsIcon from 'assets/svgs/SettingsIcon.svg';
 import Rating from 'components/Rating';
 
@@ -13,7 +13,7 @@ const AvatarCard: React.FC = () => {
 
       <AvatarCircle image={avatarImage} />
       <Settings>
-        <img src={SettingsIcon} />
+        <SettingsIcon />
       </Settings>
       <Rating stars={stars} />
     </Wrapper>

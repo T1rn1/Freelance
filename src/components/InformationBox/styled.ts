@@ -27,11 +27,14 @@ export const ToggleButton = styled.button<{ isOpen: boolean }>`
   text-align: left;
 `;
 
-export const Arrow = styled.img<{ isOpen: boolean }>`
-  width: 16px;
-  height: 16px;
+import ArrowIconSvg from 'assets/svgs/InformationBox/ArrowIcon.svg';
+
+export const Arrow = styled(ArrowIconSvg)<{ isOpen: boolean }>`
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
   transition: transform 0.3s ease;
-  transform: ${({ isOpen }: { isOpen: boolean }) => (isOpen ? 'rotate(0)' : 'rotate(180deg)')};
+  transform: rotate(${(props) => (props.isOpen ? '180deg' : '0deg')});
 `;
 
 export const Content = styled.div<{ isOpen: boolean }>`

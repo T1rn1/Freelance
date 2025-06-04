@@ -1,4 +1,3 @@
-import ArrowIcon from 'assets/svgs/InformationBox/ArrowIcon.svg';
 import CertificatesIcon from 'assets/svgs/InformationBox/CertificatesIcon.svg';
 import ClockIcon from 'assets/svgs/InformationBox/ClockIcon.svg';
 import CountryIcon from 'assets/svgs/InformationBox/CountryIcon.svg';
@@ -15,25 +14,25 @@ const InformationBox = () => {
     <Box>
       <ToggleButton isOpen={isOpen} onClick={() => setIsOpen((prev) => !prev)}>
         {isOpen ? 'Скрыть подробную информацию' : 'Показать подробную информацию'}
-        <Arrow alt='toggle arrow' isOpen={isOpen} src={ArrowIcon} />
+        <Arrow isOpen={isOpen} />
       </ToggleButton>
 
       <Content isOpen={isOpen}>
         <Grid>
           <Icon>
-            <img src={CountryIcon} />
+            <CountryIcon />
           </Icon>
           <Label>Страна:</Label>
           <Value>Казахстан, Алматы</Value>
 
           <Icon>
-            <img src={ClockIcon} />
+            <ClockIcon />
           </Icon>
           <Label>На сайте:</Label>
           <Value>3 года</Value>
 
           <Icon>
-            <img src={EducationIcon} />
+            <EducationIcon />
           </Icon>
           <Label>Образование:</Label>
           <Value>
@@ -43,7 +42,7 @@ const InformationBox = () => {
           </Value>
 
           <Icon>
-            <img src={LanguageIcon} />
+            <LanguageIcon />
           </Icon>
           <Label>Знание языков:</Label>
           <Value>
@@ -53,7 +52,7 @@ const InformationBox = () => {
           </Value>
 
           <Icon>
-            <img src={CertificatesIcon} />
+            <CertificatesIcon />
           </Icon>
           <Label>Сертификаты:</Label>
           <Value>

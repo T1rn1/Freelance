@@ -1,9 +1,16 @@
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import { defineConfig } from 'vite';
+import svgr from 'vite-plugin-svgr';
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    svgr({
+      include: '**/*.svg',
+      svgrOptions: { exportType: 'default', ref: true, svgo: false, titleProp: true },
+    }),
+  ],
   resolve: {
     alias: {
       assets: path.resolve(__dirname, './src/assets'),
