@@ -9,8 +9,10 @@ export interface UserDataModel {
   phone: string;
   password: string;
   createdAt: Date;
+  descrition: string;
 
   photoURL: string;
+  profession: string;
 
   skills?: string[];
 

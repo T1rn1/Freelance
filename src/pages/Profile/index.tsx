@@ -2,15 +2,16 @@ import AvatarIcon from 'components/AvatarIcon';
 import InformationBox from 'components/InformationBox';
 import SkillBox from 'components/SkillBox';
 import WorksBox from 'components/WorksBox';
+import { auth } from 'db/firebase';
+import { getUserData } from 'db/userService';
 import type { User } from 'firebase/auth';
+import type { UserDataModel } from 'models/UserDataModel';
 import React, { useEffect, useState } from 'react';
-import { getUserData, type UserData } from 'src/firebase/userService';
 
-import { auth } from '../../firebase/firebase';
 import { Description, FullName, Halfs, Name, Profession, Wrapper } from './styled';
 
 const ProfilePage: React.FC = () => {
-  const [userData, setUserData] = useState<UserData | null>(null);
+  const [userData, setUserData] = useState<UserDataModel | null>(null);
   const [currentUser, setCurrentUser] = useState<User | null>(null);
 
   useEffect(() => {
@@ -29,17 +30,17 @@ const ProfilePage: React.FC = () => {
     <Wrapper>
       <Halfs>
         <div>
-          <Profession>{userData?.education || 'Специализация не указана'}</Profession>
+          <Profession>{userData?.profession}</Profession>
           <FullName>
-            <Name>{userData?.firstName || 'Имя'}</Name> {userData?.lastName || 'Фамилия'}
+            <Name>{userData?.firstName}</Name> {userData?.lastName}
           </FullName>
-          <Description>Добро пожаловать в профиль! Здесь отображаются ваши данные.</Description>
-          <SkillBox skills={userData?.certificates || []} />
-          <InformationBox info={info} />
+          <Description>{userData?.descrition}</Description>
+          <SkillBox skills={userData?.skills || []} />
+          {userData?.userInformation && <InformationBox info={userData.userInformation} />}
         </div>
-        <AvatarIcon photoURL={currentUser?.photoURL || ''} />
+        <AvatarIcon photoURL={userData?.photoURL} />
       </Halfs>
-      <WorksBox works={[]} />
+      <WorksBox works={userData?.works} />
     </Wrapper>
   );
 };
