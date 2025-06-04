@@ -3,7 +3,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { auth } from '../../firebase/firebase';
+import { auth } from '../../db/firebase';
 import {
   ErrorText,
   InputForm,
