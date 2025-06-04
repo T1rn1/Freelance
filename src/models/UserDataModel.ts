@@ -1,7 +1,8 @@
-import type { userInformationModel } from 'models/UserInformationModel';
 import type { WorkModel } from 'models/WorkModel';
 
-export interface UserData {
+import type { UserInfoModel } from './UserInfoModel';
+
+export interface UserDataModel {
   firstName: string;
   lastName: string;
   email: string;
@@ -13,7 +14,7 @@ export interface UserData {
 
   skills?: string[];
 
-  userInformation: userInformationModel;
+  userInformation: UserInfoModel;
 
   works: WorkModel;
 }

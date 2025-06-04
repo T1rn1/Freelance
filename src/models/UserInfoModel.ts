@@ -1,4 +1,4 @@
-export class UserInfo {
+export class UserInfoModel {
   location: string;
   membershipDuration: string;
   education: string[];

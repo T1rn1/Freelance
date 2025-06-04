@@ -3,11 +3,16 @@ import ClockIcon from 'assets/svgs/InformationBox/ClockIcon.svg';
 import CountryIcon from 'assets/svgs/InformationBox/CountryIcon.svg';
 import EducationIcon from 'assets/svgs/InformationBox/EducationIcon.svg';
 import LanguageIcon from 'assets/svgs/InformationBox/LanguageIcon.svg';
+import type { UserInfoModel } from 'models/UserInfoModel';
 import { useState } from 'react';
 
 import { Arrow, Box, Content, Grid, Icon, Label, ToggleButton, Value } from './styled';
 
-const InformationBox = () => {
+interface InformationBoxProps {
+  info: UserInfoModel;
+}
+
+const InformationBox: React.FC<InformationBoxProps> = ({ info }) => {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
@@ -23,43 +28,31 @@ const InformationBox = () => {
             <CountryIcon />
           </Icon>
           <Label>Страна:</Label>
-          <Value>Казахстан, Алматы</Value>
+          <Value>{info.location}</Value>
 
           <Icon>
             <ClockIcon />
           </Icon>
           <Label>На сайте:</Label>
-          <Value>3 года</Value>
+          <Value>{info.membershipDuration}</Value>
 
           <Icon>
             <EducationIcon />
           </Icon>
           <Label>Образование:</Label>
-          <Value>
-            1. Казахстан, КазНУ, Бакалавр
-            <br />
-            2. Казахстан, КБТУ, Магистратура
-          </Value>
+          <Value>{info.education.map((edu, idx) => `${idx + 1}. ${edu}`).join('\n')}</Value>
 
           <Icon>
             <LanguageIcon />
           </Icon>
           <Label>Знание языков:</Label>
-          <Value>
-            1. Казахский
-            <br />
-            2. Русский
-          </Value>
+          <Value>{info.languages.map((lang, idx) => `${idx + 1}. ${lang}`).join('\n')}</Value>
 
           <Icon>
             <CertificatesIcon />
           </Icon>
           <Label>Сертификаты:</Label>
-          <Value>
-            1. Сертификат 1, 2020 года
-            <br />
-            2. Сертификат 2, 2021 года
-          </Value>
+          <Value>{info.certificates.map((cert, idx) => `${idx + 1}. ${cert}`).join('\n')}</Value>
         </Grid>
       </Content>
     </Box>

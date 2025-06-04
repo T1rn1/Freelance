@@ -1,10 +1,9 @@
 import { Box, Skill } from './styled';
 
-const SkillBox = () => {
-  const arr = ['Figma', 'It', 'programming'];
+const SkillBox: React.FC<{ skills: string[] }> = ({ skills }) => {
   return (
     <Box>
-      {arr.map((skill, index) => (
+      {skills.map((skill, index) => (
         <Skill key={index}>{skill}</Skill>
       ))}
     </Box>
