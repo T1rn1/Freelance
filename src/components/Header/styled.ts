@@ -11,7 +11,7 @@ export const StyledHeader = styled.header`
 
 export const StyledNav = styled.nav`
   display: flex;
-  gap: 2rem;
+  gap: 40px;
   justify-content: space-between;
   min-width: 600px;
 `;
@@ -36,7 +36,7 @@ export const StyledLink = styled(Link)`
 
 export const ProfileBtns = styled.div`
   display: flex;
-  gap: 20px;
+  gap: 30px;
 `;
 
 export const LoginBtn = styled(Link)`
