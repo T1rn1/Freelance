@@ -1,4 +1,4 @@
-import LoginImage from 'assets/RegPageImage.png';
+import LoginImage from 'assets/pngs/RegPageImage.png';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { theme } from 'styles/theme';

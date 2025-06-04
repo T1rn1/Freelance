@@ -1,4 +1,4 @@
-import imageSrc from 'assets/RegPageImage.png';
+import imageSrc from 'assets/pngs/RegPageImage.png';
 
 import { BoxWrapper, ElseBtn, Price, Title, WorkCard, WorkImage, WorksTitle } from './styled';
 
@@ -50,7 +50,9 @@ const WorksBox = () => {
         ))}
       </BoxWrapper>
 
-      <ElseBtn>Загрузить ещё</ElseBtn>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <ElseBtn>Загрузить ещё</ElseBtn>
+      </div>
     </div>
   );
 };

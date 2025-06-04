@@ -1,5 +1,5 @@
-import avatarImage from 'assets/Google.svg';
-import SettingsIcon from 'assets/SettingsIcon.svg';
+import avatarImage from 'assets/svgs/Google.svg';
+import SettingsIcon from 'assets/svgs/SettingsIcon.svg';
 import Rating from 'components/Rating';
 
 import { AvatarCircle, Settings, Status, Wrapper } from './styled';

@@ -1,4 +1,4 @@
-import WorkTapIcon from 'assets/WorktapIcon.svg';
+import WorkTapIcon from 'assets/svgs/WorktapIcon.svg';
 
 import { LoginBtn, ProfileBtns, RegBtn, StyledHeader, StyledLink, StyledNav } from './styled';
 

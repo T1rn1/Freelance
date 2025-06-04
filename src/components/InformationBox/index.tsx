@@ -1,9 +1,9 @@
-import ArrowIcon from 'assets/ArrowIcon.svg';
-import CertificatesIcon from 'assets/CertificatesIcon.svg';
-import ClockIcon from 'assets/ClockIcon.svg';
-import CountryIcon from 'assets/CountryIcon.svg';
-import EducationIcon from 'assets/EducationIcon.svg';
-import LanguageIcon from 'assets/LanguageIcon.svg';
+import ArrowIcon from 'assets/svgs/InformationBox/ArrowIcon.svg';
+import CertificatesIcon from 'assets/svgs/InformationBox/CertificatesIcon.svg';
+import ClockIcon from 'assets/svgs/InformationBox/ClockIcon.svg';
+import CountryIcon from 'assets/svgs/InformationBox/CountryIcon.svg';
+import EducationIcon from 'assets/svgs/InformationBox/EducationIcon.svg';
+import LanguageIcon from 'assets/svgs/InformationBox/LanguageIcon.svg';
 import { useState } from 'react';
 
 import { Arrow, Box, Content, Grid, Icon, Label, ToggleButton, Value } from './styled';
